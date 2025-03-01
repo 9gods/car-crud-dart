@@ -9,6 +9,7 @@ class CarService {
   List<Car> getCars() => _repository.getAll();
   List<Car>? getCarsByBrand(String brand) => _repository.getByBrand(brand);
   List<Car>? getCarsByYear(int year) => _repository.getByYear(year);
+  Car? getCarsById(int id) => _repository.getById(id);
 
   void createCar(
     String brand,
