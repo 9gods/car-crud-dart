@@ -1,4 +1,5 @@
 import '../models/car.dart';
+import 'package:collection/collection.dart';
 
 class CarRepository {
   final List<Car> _cars = [];
@@ -12,7 +13,7 @@ class CarRepository {
   }
 
   Car? getById(int id) {
-    return _cars.firstWhere((car) => car.id == id, orElse: () => null);
+    return _cars.firstWhereOrNull((car) => car.id == id);
   }
 
   List<Car> getByBrand(String brand) {
