@@ -3,12 +3,16 @@ import '../models/car.dart';
 class CarRepository {
   final List<Car> _cars = [];
 
-  void createCar(Car car) {
+  void create(Car car) {
     _cars.add(car);
   }
 
   List<Car> getAll() {
     return _cars;
+  }
+
+  Car? getById(int id) {
+    return _cars.firstWhere((car) => car.id == id, orElse: () => null);
   }
 
   List<Car> getByBrand(String brand) {
