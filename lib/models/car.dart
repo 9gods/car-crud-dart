@@ -1,4 +1,5 @@
 class Car {
+  int id;
   String brand;
   String model;
   String engine;
@@ -10,6 +11,7 @@ class Car {
   // File carPhoto;
 
   Car({
+    required this.id,
     required this.brand,
     required this.model,
     required this.engine,
@@ -23,6 +25,7 @@ class Car {
 
   factory Car.fromJson(Map<String, dynamic> json) {
     return Car(
+      id: json['id'],
       brand: json['brand'],
       model: json['model'],
       engine: json['engine'],
@@ -37,6 +40,7 @@ class Car {
 
   Map<String, dynamic> toJson() {
     return {
+      "id": id,
       'brand': brand,
       'model': model,
       'engine': engine,
