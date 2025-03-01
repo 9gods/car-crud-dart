@@ -68,6 +68,55 @@ class CarController {
     final payload = await request.readAsString();
     final data = jsonDecode(payload);
 
-    _service.createCar()
+    _service.createCar(
+      data['brand'],
+      data['model'],
+      data['engine'],
+      data['engineCode'],
+      data['year'],
+      data['horsepower'],
+      data['price'],
+      data['weight'],
+    );
+    return Response.ok(
+      jsonEncode({'message': 'CAR_CREATED'}),
+      headers: {'Content-Type': 'application/json'},
+    );
+  }
+
+  // update car endpoint
+  Future<Response> updateCar(Request request, String idStr) async {
+    final id = int.tryParse(idStr);
+    if (id == null) return Response.badRequest(body: 'INVALID_ID');
+    final payload = await request.readAsString();
+    final data = jsonDecode(payload);
+    final success = _service.updateCar(
+      id,
+      data['brand'],
+      data['model'],
+      data['engine'],
+      data['engineCode'],
+      data['year'],
+      data['horsepower'],
+      data['price'],
+      data['weight'],
+    );
+    if (!success) return Response.notFound('Usuário não encontrado');
+    return Response.ok(
+      jsonEncode({'message': 'Usuário atualizado'}),
+      headers: {'Content-Type': 'application/json'},
+    );
+  }
+
+  // delete car endpoint
+  Response deleteCar(Request request, String idStr) {
+    final id = int.tryParse(idStr);
+    if (id == null) return Response.badRequest(body: 'INVALID_ID');
+    final success = _service.deleteCar(id);
+    if (!success) return Response.notFound('CAR_NOT_FOUND');
+    return Response.ok(
+      jsonEncode({'message': 'CAR_DELETED'}),
+      headers: {'Content-Type': 'application/json'},
+    );
   }
 }
