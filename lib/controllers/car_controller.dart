@@ -10,6 +10,9 @@ class CarController {
   // get all cars endpoint
   Response getCars(Request request) {
     final cars = _service.getCars();
+    if (cars.isEmpty) {
+      Response.badRequest(body: 'NO_CARS_AVAILABLE');
+    }
     return Response.ok(
       jsonEncode(cars.map((u) => u.toJson()).toList()),
       headers: {'Content-Type': 'application/json'},
