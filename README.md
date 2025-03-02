@@ -1,6 +1,8 @@
-# CRUD for Cars in Dart
+# CRUD API for Garage Manager App in Dart
 
-This project is a simple example I created to study Dart. It implements a CRUD (Create, Read, Update, Delete) for managing cars using a layered architecture. It demonstrates simple better practices for developing RESTful APIs with Dart.
+This project is a simple example I created to study Dart. It implements a CRUD (Create, Read, Update, Delete) API for managing cars using a layered architecture. It demonstrates simple better practices for developing RESTful APIs with Dart.
+
+Project made for [Garage Mangar Flutter App](https://github.com/9gods/garage-manager-flutter.git)
 
 ---
 
