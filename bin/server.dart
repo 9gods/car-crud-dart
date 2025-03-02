@@ -1,7 +1,7 @@
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_cors_headers/shelf_cors_headers.dart';
-import 'package:car_crud_dart/routes/routes.dart';
+import 'package:garage_manager_crud_dart/routes/routes.dart';
 
 void main() async {
   final router = getRoutes();
