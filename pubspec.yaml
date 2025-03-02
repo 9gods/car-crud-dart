@@ -1,5 +1,5 @@
-name: car_crud_dart
-description: A sample command-line application with basic argument parsing.
+name: garage_manager_crud_dart
+description: It implements a CRUD (Create, Read, Update, Delete) API for managing cars using a layered architecture.
 version: 0.0.1
 # repository: https://github.com/my_org/my_repo
 
